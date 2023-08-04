@@ -12,7 +12,7 @@ import { isProductCompleted, findProductBySMC, isAvailable, findPrice } from '..
 import Product from '../../interfaces/product.type';
 import Params from '../../interfaces/params.type';
 import {Request, Response, NextFunction} from 'express';
-import HttpException from '~/exceptions/http.exception';
+import HttpException from '../exceptions/http.exception';
 
 
 const routes = Router();
@@ -25,7 +25,7 @@ routes.get('/product', (req: Request, res: Response, next: NextFunction) => {
 
     const product: Product = findProductBySMC(products, SMC);
     if(!isProductCompleted(product)) throw new HttpException(404, 'Produit non trouvé')
-    if(!isAvailable(product, country)) throw new HttpException(401, `Produit indisponible dans ce pays : ${country}`)
+    if(!isAvailable(product, country)) throw new HttpException(404, `Produit indisponible dans ce pays : ${country}`)
 
     const price = findPrice(prices, SMC);
     
