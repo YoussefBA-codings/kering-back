@@ -49,7 +49,7 @@ Ce script démarre le serveur en utilisant le fichier `dist/server.js`.
 
 ### GET /product
 
-Récupère un produit en fonction de son code SMC (Smart Manifold Code) et du pays.
+Récupère un produit en fonction de son code SMC et du pays.
 
 - **Paramètres de requête :**
 
@@ -59,7 +59,7 @@ Récupère un produit en fonction de son code SMC (Smart Manifold Code) et du pa
 - **Réponses :**
 
   - 200 OK: La demande a réussi. Le corps de la réponse contient les détails du produit ainsi que son prix.
-  - 401 Non autorisé: Le produit n'est pas disponible dans le pays spécifié.
+  - 404 Non autorisé: Le produit n'est pas disponible dans le pays spécifié.
   - 404 Non trouvé: Le produit avec le code SMC spécifié n'a pas été trouvé.
 
 ## Exécution de l'API
